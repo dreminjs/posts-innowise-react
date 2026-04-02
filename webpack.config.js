@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.tsx",
+  entry: "./src/app/index.tsx",
   output: {
     filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "dist"),
@@ -24,8 +24,24 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
+        test: /^((?!\.module).)*\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              esModule: true,
+              modules: {
+                namedExport: false,
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -34,7 +50,13 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".css"],
+    alias: {
+      "@shared": path.resolve(__dirname, "src/shared"),
+      "@modules": path.resolve(__dirname, "src/modules"),
+      "@app": path.resolve(__dirname, "src/app"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

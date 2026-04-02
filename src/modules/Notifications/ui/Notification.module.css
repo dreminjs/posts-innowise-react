@@ -1,0 +1,76 @@
+.notificationList {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.notifactionItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    font-size: 20px;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    animation: slideIn 0.2s ease;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.dotSuccess {
+    background: #639922;
+}
+.dotError {
+    background: #e24b4a;
+}
+.dotWarning {
+    background: #ba7517;
+}
+.dotInfo {
+    background: #378add;
+}
+
+.message {
+    flex: 1;
+    font-size: 13px;
+    color: var(--color-text-primary);
+    line-height: 1.5;
+}
+
+.close {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--color-text-tertiary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.close:hover {
+    color: var(--color-text-secondary);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
