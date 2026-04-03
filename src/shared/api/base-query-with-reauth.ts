@@ -2,9 +2,10 @@ import {
   BaseQueryFn,
   FetchArgs,
   FetchBaseQueryError,
-  RootState,
 } from "@reduxjs/toolkit/query";
-import { baseQuery } from "./base-query";
+import { baseQuery, baseQueryWithCredentials } from "./base-query";
+import { setCurrentUser } from "@modules/Users";
+import { logoutAction } from "@modules/Users/model/actions";
 
 export const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
@@ -14,7 +15,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   let result = await baseQuery(args, api, extraOptions);
 
   if (result.error && result.error.status === 401) {
-    const refreshResult = await baseQuery(
+    const refreshResult = await baseQueryWithCredentials(
       {
         url: "/auth/refresh",
         method: "POST",
@@ -30,8 +31,8 @@ export const baseQueryWithReauth: BaseQueryFn<
 
       result = await baseQuery(args, api, extraOptions);
     } else {
+      api.dispatch(logoutAction());
     }
-    // store.dispatch(logout());
 
     return {
       error: { status: 401, data: "Session expired" } as FetchBaseQueryError,

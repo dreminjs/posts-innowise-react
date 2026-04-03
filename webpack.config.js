@@ -56,6 +56,7 @@ module.exports = {
       "@modules": path.resolve(__dirname, "src/modules"),
       "@app": path.resolve(__dirname, "src/app"),
       "@styles": path.resolve(__dirname, "src/styles"),
+      "@components": path.resolve(__dirname, "src/components"),
     },
   },
   plugins: [

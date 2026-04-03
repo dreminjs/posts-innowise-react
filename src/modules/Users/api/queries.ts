@@ -1,0 +1,18 @@
+import { createApi } from "@reduxjs/toolkit/query/react";
+import { baseQueryWithReauth } from "@shared/index";
+import { IUser } from "../model/users.interface";
+import { GET_ME_TAG, USERS_TAG } from "../model/constants";
+
+export const usersApi = createApi({
+  reducerPath: "usersApi",
+  baseQuery: baseQueryWithReauth,
+  tagTypes: [USERS_TAG, GET_ME_TAG],
+  endpoints: (builder) => ({
+    getMe: builder.query<IUser, void>({
+      query: () => "/user/me",
+      providesTags: [USERS_TAG, GET_ME_TAG],
+    }),
+  }),
+});
+
+export const { useGetMeQuery } = usersApi;

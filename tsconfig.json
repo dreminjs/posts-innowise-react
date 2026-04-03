@@ -16,6 +16,7 @@
       "@modules/*": ["./src/modules/*"],
       "@app/*": ["./src/app/*"],
       "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
     },
   },
   "include": ["src/**/*"],
