@@ -1,5 +1,5 @@
 import { LoginPage } from "@modules/Login";
-import { PostsPage } from "@modules/Posts";
+import { EditPostPage, PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
@@ -38,6 +38,10 @@ export const router = createBrowserRouter([
           {
             path: "/posts/create",
             Component: CreatePostPage,
+          },
+          {
+            path: "/posts/:postId/edit",
+            Component: EditPostPage,
           },
         ],
       },

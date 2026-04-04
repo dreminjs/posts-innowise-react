@@ -1,0 +1,38 @@
+.postField {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.postLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 16px;
+}
+
+.input,
+.textarea {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: #999;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.postError {
+    font-size: 0.8rem;
+    color: #ff3b30;
+}

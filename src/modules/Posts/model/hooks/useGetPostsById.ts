@@ -2,7 +2,7 @@ import { useGetPostsByUserIdQuery } from "@modules/Posts";
 import { useState } from "react";
 
 export const useGetPostsByUserId = (userId: number) => {
-  const limit = 10;
+  const limit = 5;
   const [skip, setSkip] = useState(0);
   const { data, isLoading, isError } = useGetPostsByUserIdQuery({
     skip,

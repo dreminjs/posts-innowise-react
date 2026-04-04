@@ -4,3 +4,4 @@ export * from "./api/queries";
 export * from "./ui/UsersPost";
 export * from "./ui/PostsPage/ConfirmDeletion/ConfirmDeletionModal";
 export * from "./ui/CreatePostPage/CreatePostPage";
+export * from "./ui/EditPostPage/EditPostPage";

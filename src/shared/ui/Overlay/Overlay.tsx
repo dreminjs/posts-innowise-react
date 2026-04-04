@@ -6,6 +6,5 @@ interface IOverlayProps {
 }
 
 export const Overlay: FC<IOverlayProps> = ({ onClick }) => {
-  console.log(styles);
   return <div className={styles.overlay} onClick={onClick} />;
 };

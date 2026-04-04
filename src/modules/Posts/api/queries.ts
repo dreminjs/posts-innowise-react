@@ -1,9 +1,11 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "@shared/index";
 import {
+  IPost,
   IPostsResponse,
   TFindPostsByUserIdQueryParams,
   TFindPostsQueryParams,
+  TUpdatePostDto,
 } from "../model/posts.interfaces";
 import { setPostIdToDelete } from "../model/postsSlice";
 import { addNotification } from "@modules/Notifications";
@@ -60,6 +62,38 @@ export const postsApi = createApi({
     getPostTags: builder.query({
       query: () => "/tags",
     }),
+    getPostById: builder.query<IPost, number>({
+      query: (postId) => `/posts/${postId}`,
+    }),
+    editPostById: builder.mutation<IPost, TUpdatePostDto>({
+      query: (dto) => ({
+        url: `/posts/${dto.postId}`,
+        method: "PUT",
+        body: {
+          title: dto.title,
+          body: dto.body,
+          tags: dto.tags,
+        },
+      }),
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          dispatch(
+            addNotification({
+              type: "success",
+              message: "Успешно отредактирован пост",
+            }),
+          );
+        } catch (error) {
+          dispatch(
+            addNotification({
+              type: "error",
+              message: "Не удалось отредактировать пост",
+            }),
+          );
+        }
+      },
+    }),
     deletePost: builder.mutation({
       query: (postId) => ({
         url: `/posts/${postId}`,
@@ -95,4 +129,6 @@ export const {
   useGetPostsByUserIdQuery,
   useDeletePostMutation,
   useCreatePostMutation,
+  useGetPostByIdQuery,
+  useEditPostByIdMutation,
 } = postsApi;

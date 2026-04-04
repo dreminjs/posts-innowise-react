@@ -9,7 +9,7 @@ interface IActionsProps {
 export const Actions: FC<IActionsProps> = ({ postId }) => {
   return (
     <>
-      <Link to={`/edit/${postId}`}>Edit</Link>
+      <Link to={`/posts/${postId}/edit`}>Edit</Link>
       <DeleteButton postId={postId} />
     </>
   );

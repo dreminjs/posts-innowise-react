@@ -3,7 +3,7 @@ import { useGetPostsQuery } from "../../api/queries";
 import { useState } from "react";
 
 export const useGetPosts = () => {
-  const limit = 10;
+  const limit = 5;
   const [skip, setSkip] = useState(0);
   const { searchQuery, tagQuery } = useAppSelector((state) => state.posts);
   const { data, isLoading, isError } = useGetPostsQuery({

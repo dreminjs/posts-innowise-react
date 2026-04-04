@@ -6,7 +6,7 @@ import { useTags } from "./useTags";
 import { UseFormReset } from "react-hook-form";
 
 export const useCreatePost = (reset: UseFormReset<TCreatePostSchema>) => {
-  const { tags, handleAddTag, handleReset } = useTags();
+  const { tags, handleAddTag, handleReset, handleSetTags } = useTags();
 
   const [createPost, { isLoading }] = useCreatePostMutation();
 
@@ -32,5 +32,6 @@ export const useCreatePost = (reset: UseFormReset<TCreatePostSchema>) => {
     isLoading,
     handleAddTag,
     tags,
+    handleSetTags,
   };
 };

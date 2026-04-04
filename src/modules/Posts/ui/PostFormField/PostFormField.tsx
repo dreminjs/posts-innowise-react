@@ -1,9 +1,9 @@
 import { UseFormRegister } from "react-hook-form";
 import { TCreatePostSchema } from "../../model/posts.interfaces";
 import { FC } from "react";
-import styles from "./CreatePostPage.module.css";
+import styles from "./PostFormField.module.css";
 
-interface ICreatePostFormFieldProps {
+interface IPostFormFieldProps {
   name: keyof TCreatePostSchema;
   label: string;
   tag: "input" | "textarea";
@@ -11,7 +11,7 @@ interface ICreatePostFormFieldProps {
   error?: string;
 }
 
-export const CreatePostFormField: FC<ICreatePostFormFieldProps> = ({
+export const PostFormField: FC<IPostFormFieldProps> = ({
   name,
   label,
   tag: Tag,
@@ -19,12 +19,12 @@ export const CreatePostFormField: FC<ICreatePostFormFieldProps> = ({
   error,
 }) => {
   return (
-    <div className={styles.createPostField}>
-      <label className={styles.createPostLabel} htmlFor={name}>
+    <div className={styles.postField}>
+      <label className={styles.postLabel} htmlFor={name}>
         {label}
       </label>
       <Tag id={name} className={styles[Tag]} {...register(name)} />
-      {error && <span className={styles.createPostError}>{error}</span>}
+      {error && <span className={styles.postError}>{error}</span>}
     </div>
   );
 };

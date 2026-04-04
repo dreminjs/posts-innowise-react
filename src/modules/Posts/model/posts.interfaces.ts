@@ -43,3 +43,7 @@ export type TCreatePostDto = z.infer<typeof createPostSchema> & {
 };
 
 export type TCreatePostSchema = z.infer<typeof createPostSchema>;
+
+export type TUpdatePostDto = TCreatePostDto & {
+  postId: number;
+};

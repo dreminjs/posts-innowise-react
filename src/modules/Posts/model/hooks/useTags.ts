@@ -15,5 +15,9 @@ export const useTags = () => {
     setTags([]);
   };
 
-  return { tags, handleAddTag, handleReset };
+  const handleSetTags = (newTags: string[]) => {
+    setTags(newTags);
+  };
+
+  return { tags, handleAddTag, handleReset, handleSetTags };
 };

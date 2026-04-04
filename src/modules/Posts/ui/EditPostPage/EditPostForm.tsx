@@ -1,15 +1,27 @@
-import { useCreatePost } from "../../model/hooks/useCreatePost";
 import { usePostForm } from "../../model/hooks/usePostForm";
 import { TagsList } from "@modules/Tags";
 import { PostFormField } from "../PostFormField";
-import styles from "./CreatePostPage.module.css";
+import { IPost } from "@modules/Posts/model/posts.interfaces";
+import { useEditPost } from "@modules/Posts/model/hooks/useEditPost";
+import styles from "./EditPostPage.module.css";
+import { FC } from "react";
 
-export const CreatePostForm = () => {
-  const { register, handleSubmit, reset } = usePostForm();
-  const { onCreate, handleAddTag, tags } = useCreatePost(reset);
+type TEditPostFormProps = IPost;
+
+export const EditPostForm: FC<TEditPostFormProps> = ({
+  id,
+  title,
+  body,
+  tags: postTags,
+}) => {
+  const { register, handleSubmit } = usePostForm({ title, body });
+  const { onEdit, handleAddTag, tags } = useEditPost({
+    choosedTags: postTags,
+    postId: id,
+  });
 
   return (
-    <form onSubmit={handleSubmit(onCreate)}>
+    <form onSubmit={handleSubmit(onEdit)}>
       <PostFormField
         name="title"
         label="Title"
