@@ -1,4 +1,3 @@
-export { usersApi, useGetMeQuery } from "./api/queries";
 export { type IUser } from "./model/users.interface";
 export {
   usersSlice,

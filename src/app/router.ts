@@ -1,9 +1,7 @@
-import { LoginPage } from "@modules/Login";
 import { PostsPage } from "@modules/Posts";
 import { createBrowserRouter } from "react-router";
 import { BaseLayout } from "../layouts/BaseLayout";
 import { GuestProvider } from "../providers/GuestProvider";
-import { MyProfilePage } from "@modules/Users";
 import { ProtectedRoutesProvider } from "../providers/ProtectedRoutesProvider";
 import { lazy } from "react";
 
@@ -18,6 +16,18 @@ const EditPostPage = lazy(() =>
 const UsersProfilePage = lazy(() =>
   import("@modules/Users").then((module) => ({
     default: module.UsersProfilePage,
+  })),
+);
+
+const LoginPage = lazy(() =>
+  import("@modules/Login").then((module) => ({
+    default: module.LoginPage,
+  })),
+);
+
+const MyProfilePage = lazy(() =>
+  import("@modules/Users").then((module) => ({
+    default: module.MyProfilePage,
   })),
 );
 
