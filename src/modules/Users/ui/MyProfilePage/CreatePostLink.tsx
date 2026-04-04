@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import styles from "./MyProfilePage.module.css";
+import styles from "./CreatePostLink.module.css";
 
 export const CreatePostLink = () => {
   return (

@@ -2,7 +2,7 @@ import { useCreatePost } from "../../model/hooks/useCreatePost";
 import { usePostForm } from "../../model/hooks/usePostForm";
 import { TagsList } from "@modules/Tags";
 import { PostFormField } from "../PostFormField";
-import styles from "./CreatePostPage.module.css";
+import styles from "./CreatePostForm.module.css";
 
 export const CreatePostForm = () => {
   const { register, handleSubmit, reset } = usePostForm();

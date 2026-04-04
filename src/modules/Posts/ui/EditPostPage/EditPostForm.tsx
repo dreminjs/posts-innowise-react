@@ -3,8 +3,8 @@ import { TagsList } from "@modules/Tags";
 import { PostFormField } from "../PostFormField";
 import { IPost } from "@modules/Posts/model/posts.interfaces";
 import { useEditPost } from "@modules/Posts/model/hooks/useEditPost";
-import styles from "./EditPostPage.module.css";
 import { FC } from "react";
+import styles from "./EditPostForm.module.css";
 
 type TEditPostFormProps = IPost;
 

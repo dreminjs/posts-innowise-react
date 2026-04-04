@@ -1,7 +1,16 @@
-export * from "./ui/PostsPage/PostsPage";
-export * from "./model/postsSlice";
-export * from "./api/queries";
-export * from "./ui/UsersPost";
-export * from "./ui/PostsPage/ConfirmDeletion/ConfirmDeletionModal";
-export * from "./ui/CreatePostPage/CreatePostPage";
-export * from "./ui/EditPostPage/EditPostPage";
+export {
+  postsSlice,
+  setSearchQuery,
+  setTag,
+  setPostIdToDelete,
+} from "./model/postsSlice";
+export {
+  useGetPostsQuery,
+  useCreatePostMutation,
+  useDeletePostMutation,
+  useEditPostByIdMutation,
+  postsApi,
+  useGetPostsByUserIdQuery,
+} from "./api/queries";
+export { UserPosts } from "./ui/UsersPost";
+export { ConfirmDeletionModal } from "./ui/PostsPage/ConfirmDeletion/ConfirmDeletionModal";

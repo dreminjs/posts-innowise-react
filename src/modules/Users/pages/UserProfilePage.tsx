@@ -1,9 +1,9 @@
 import { useParams } from "react-router";
-import { UserCard } from "../UserCard/UserCard";
+import { UserCard } from "../ui/UserCard/UserCard";
 import { UserPosts } from "@modules/Posts";
 import { useGetUserQuery } from "@modules/Users";
 
-export const UsersProfilePage = () => {
+export default () => {
   const { id } = useParams<{ id: string }>();
   const { data: user, isLoading } = useGetUserQuery(Number(id));
 

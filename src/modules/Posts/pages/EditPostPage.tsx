@@ -1,10 +1,10 @@
-import { useGetPostByIdQuery } from "@modules/Posts";
-import { EditPostForm } from "./EditPostForm";
+import { EditPostForm } from "../ui/EditPostPage/EditPostForm";
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
 import { useGetMeQuery } from "@modules/Users";
+import { useGetPostByIdQuery } from "../api/queries";
 
-export const EditPostPage = () => {
+export default () => {
   const { postId } = useParams<{ postId: string }>();
 
   const { data: post, isLoading } = useGetPostByIdQuery(Number(postId));
@@ -21,11 +21,11 @@ export const EditPostPage = () => {
     return <div>Не найден</div>;
   }
 
-  // useEffect(() => {
-  //   if (currentUser?.id !== post.userId) {
-  //     navigate("/");
-  //   }
-  // }, [currentUser, post, navigate]);
+  useEffect(() => {
+    if (currentUser?.id !== post.userId) {
+      navigate("/");
+    }
+  }, [currentUser, post, navigate]);
 
   return (
     <div>
