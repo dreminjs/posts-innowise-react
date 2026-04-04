@@ -6,6 +6,7 @@ import { tagsApi } from "@modules/Tags";
 import { notificationSlice } from "@modules/Notifications/model/notificationSlice";
 import { postsSlice } from "@modules/Posts/model/postsSlice";
 import { postsApi } from "@modules/Posts/api/queries";
+import { commentsApi } from "@modules/Comments/api/queries";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     [tagsApi.reducerPath]: tagsApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
     [postsApi.reducerPath]: postsApi.reducer,
+    [commentsApi.reducerPath]: commentsApi.reducer,
     notification: notificationSlice.reducer,
     users: usersSlice.reducer,
     posts: postsSlice.reducer,
@@ -22,7 +24,8 @@ export const store = configureStore({
       .concat(authApi.middleware)
       .concat(tagsApi.middleware)
       .concat(usersApi.middleware)
-      .concat(postsApi.middleware),
+      .concat(postsApi.middleware)
+      .concat(commentsApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

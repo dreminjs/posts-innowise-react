@@ -1,5 +1,6 @@
 import { createPostSchema, findPostsByQueryParamsSchema } from "./posts.schema";
 import { TSlug } from "@modules/Tags/";
+import { IAPIResponse } from "@shared/index";
 import z from "zod";
 
 export type TFindPostsQueryParams = z.infer<
@@ -30,11 +31,8 @@ export interface IPost {
   userId: number;
 }
 
-export interface IPostsResponse {
+export interface IPostsResponse extends IAPIResponse {
   posts: IPost[];
-  total: number;
-  skip: number;
-  limit: number;
 }
 
 export type TCreatePostDto = z.infer<typeof createPostSchema> & {
