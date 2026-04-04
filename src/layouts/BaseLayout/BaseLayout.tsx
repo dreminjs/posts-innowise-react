@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
-import styles from "./BaseLayout.module.css";
 import { Header } from "@components/Header";
+import styles from "./BaseLayout.module.css";
 export const BaseLayout = () => {
   return (
     <div className={styles.baseLayout}>

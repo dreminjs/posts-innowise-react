@@ -27,7 +27,9 @@ export const LoginFormField: FC<ILoginFormFieldProps> = ({
         {...register(name)}
         className={styles.loginFormInput}
       />
-      {error && <span className={styles.loginFormInputError}>{error}</span>}
+      {error && (
+        <span className={styles.loginFormInputError}>{error.toString()}</span>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { TLoginFormDto } from "../model/dtos/login.types";
-import { baseQueryWithReauth, Tokens, tokenService } from "@shared/index";
+import { baseQueryWithReauth, tokenService } from "@shared/index";
 import { addNotification } from "@modules/Notifications/";
 import { TLoginResponse } from "../model/dtos/login.types";
 import { omitTokensFromLoginResponse } from "../model/omit-tokens-from-login-response.helper";

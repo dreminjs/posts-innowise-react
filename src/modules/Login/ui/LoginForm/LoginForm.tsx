@@ -6,7 +6,7 @@ import styles from "./LoginForm.module.css";
 
 export const LoginForm = () => {
   const { register, handleSubmit, errors } = useFormLogin();
-  const [mutate, { isLoading, isSuccess }] = useLoginMutation();
+  const [mutate, { isLoading }] = useLoginMutation();
 
   return (
     <LoginFormWrapper>

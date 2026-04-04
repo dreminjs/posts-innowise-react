@@ -26,8 +26,8 @@ export const baseQueryWithReauth: BaseQueryFn<
     );
 
     if (refreshResult.data) {
-      const { accessToken, refreshToken: newRefreshToken } =
-        refreshResult.data as any;
+      // const { accessToken, refreshToken: newRefreshToken } =
+      //   refreshResult.data as any;
 
       result = await baseQuery(args, api, extraOptions);
     } else {
