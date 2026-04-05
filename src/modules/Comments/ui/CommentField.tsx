@@ -7,19 +7,21 @@ interface ICommentFieldProps {
   register: UseFormRegister<TCreateCommentForm>;
   name: keyof TCreateCommentForm;
   error?: string;
+  placeholder?: string;
 }
 
 export const CommentField: FC<ICommentFieldProps> = ({
   register,
   name,
   error,
+  placeholder,
 }) => {
   return (
     <div className={styles.createCommentField}>
       <textarea
         {...register(name)}
         className={styles.textarea}
-        placeholder="Write something..."
+        placeholder={placeholder}
       />
       {error && <span className={styles.error}>{error}</span>}
     </div>

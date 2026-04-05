@@ -15,8 +15,8 @@ export const Post: FC<IPostProps> = ({ postId }) => {
   const { data: post, isLoading } = useGetPostByIdQuery(Number(postId));
   const { data: user } = useGetMeQuery();
   const isAuthor = useMemo(() => {
-    return true;
-  }, [post?.userId]);
+    return user?.id === post?.userId;
+  }, [post?.userId, user?.id]);
 
   if (isLoading) return <div>Загрузка...</div>;
 
