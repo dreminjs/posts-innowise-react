@@ -42,7 +42,7 @@ export const PostsItem: FC<TPostsItemProps> = ({
           to={isAuthor ? `/profile` : `/users/${userId}`}
           className={styles.author}
         >
-          {isAuthor ? "Вы" : `Пользователь ${userId}`}
+          {isAuthor ? "You" : `User ${userId}`}
         </Link>
       </div>
     </li>
